@@ -2,7 +2,7 @@ import axios from 'axios'
 import { Message } from 'element-ui'
 // 引入store
 import store from '@/store'
-// 获取时间错
+// 获取时间戳
 import { getTime } from '@/utils/auth'
 import router from '@/router'
 // 定义超时时间
