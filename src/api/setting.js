@@ -1,7 +1,8 @@
 /**
  * 获取角色列表
  * ***/
- import request from '@/utils/request'
+ 
+import request from '@/utils/request'
  export function getRoleList(params) {
   return request({
     url: '/sys/role',
