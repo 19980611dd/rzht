@@ -34,7 +34,9 @@
                   style="width: 80px; height: 80px"
                   :src="row.staffPhoto"
                   @click.native="showQrCode(row.staffPhoto)"
-                ></el-avatar>
+                >
+                  <img src="@/assets/common/bigUserHeader.png" alt="" />
+                </el-avatar>
               </template>
             </el-table-column>
             <el-table-column label="工号" sortable="" prop="workNumber" />
@@ -97,7 +99,11 @@
     <el-dialog :visible.sync="showAvatar" title="二维码预览">
       <canvas ref="canvas" />
     </el-dialog>
-    <assignRole :showRoleDialog.sync="showRoleDialog"></assignRole>
+    <assignRole
+      :showRoleDialog.sync="showRoleDialog"
+      ref="roleRef"
+      :currentId="currentId"
+    ></assignRole>
   </div>
 </template>
 <script>
@@ -125,6 +131,7 @@ export default {
   data() {
     return {
       // 控制添加员工弹窗的显示与隐藏
+      currentId: null,
       isShowAddEmpDialog: false,
       showAvatar: false,
       list: [],
@@ -141,7 +148,9 @@ export default {
   },
   methods: {
     // 编辑角色
-    editRole(id) {
+    async editRole(id) {
+      this.currentId = id;
+      await this.$refs.roleRef.getUserDetailById(id);
       this.showRoleDialog = true;
     },
     showQrCode(url) {
