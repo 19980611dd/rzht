@@ -66,7 +66,6 @@
     </el-dialog>
   </div>
 </template>
-
 <script>
 import toolBar from "@/components/toolBar";
 import { getPermissionList, addPermission } from "@/api/permission";
@@ -144,5 +143,4 @@ export default {
   },
 };
 </script>
-
 <style></style>
