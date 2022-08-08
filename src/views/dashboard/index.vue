@@ -6,11 +6,19 @@
 </template>
 <script>
 import { mapGetters } from "vuex";
-
+import { mixins } from "@/utils/mixins";
 export default {
   name: "Dashboard",
+  mixins: [mixins],
   computed: {
     ...mapGetters(["name"]),
+  },
+  mounted() {
+    // this.hellow();
+    // console.log("我是自身对象的created");
+  },
+  created() {
+    // console.log("我是自身对象的mounted");
   },
 };
 </script>

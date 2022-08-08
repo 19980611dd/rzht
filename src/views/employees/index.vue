@@ -67,7 +67,11 @@
                 <el-button type="text" size="small" @click="editRole(row.id)"
                   >角色</el-button
                 >
-                <el-button type="text" size="small" @click="del(row.id)"
+                <el-button
+                  type="text"
+                  size="small"
+                  @click="del(row.id)"
+                  :disabled="checkPermission('DELETE_USER')"
                   >删除</el-button
                 >
               </template>
@@ -123,11 +127,13 @@ import AddDemployee from "@/views/employees/components/add-employee.vue";
 import { formatDate } from "@/filters";
 import qrCode from "qrcode";
 import assignRole from "@/views/employees/components/assignRole.vue";
+import { mixins } from "@/utils/mixins";
 export default {
   components: {
     AddDemployee,
     assignRole,
   },
+  mixins: [mixins],
   data() {
     return {
       // 控制添加员工弹窗的显示与隐藏

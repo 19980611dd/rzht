@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-dialog title="新增员工" :visible="showAddDialog" @close="close">
+    <el-dialog title="新增员工" :visible="isShowAddEmpDialog" @close="close">
       <!-- 表单 -->
       <el-form
         label-width="120px"
@@ -96,7 +96,7 @@ import { addEmployee } from "@/api/employees";
 export default {
   name: "addEmployee",
   props: {
-    showAddDialog: {
+    isShowAddEmpDialog: {
       type: Boolean,
       default: false,
     },
@@ -106,7 +106,7 @@ export default {
   },
   methods: {
     close() {
-      this.$emit("update:showAddDialog", false);
+      this.$emit("update:isShowAddEmpDialog", false);
       this.$refs.formDataRef.resetFields();
       this.formData = {
         username: "",
@@ -125,7 +125,6 @@ export default {
     async btnOK() {
       // 校验表单
       await this.$refs.formDataRef.validate();
-      提交接口;
       await addEmployee(this.formData);
       // 提示成功
       this.$message.success("新增成功");
