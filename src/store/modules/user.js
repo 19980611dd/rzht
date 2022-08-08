@@ -50,7 +50,7 @@ const actions = {
     // console.log(res)
     // 提交mutations
     context.commit("setUserInfo", baseResult);
-    return res;
+    return baseResult;
   },
   // 退出登陆功能
   logOut(context) {
