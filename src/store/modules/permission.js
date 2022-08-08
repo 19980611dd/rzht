@@ -15,7 +15,7 @@ const actions = {
     const resRouters = asyncRoutes.filter((item) => {
       return menus.includes(item.name);
     });
-    console.log(resRouters);
+    // console.log(resRouters);
     context.commit("setRoutes", resRouters);
     return resRouters;
   },

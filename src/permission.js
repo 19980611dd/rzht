@@ -1,10 +1,8 @@
 import store from "@/store";
 import NProgress from "nprogress";
 import router from "./router";
-
 const loginPath = "/login";
 const notFoundPath = "/404";
-
 const whiteList = [loginPath, notFoundPath];
 // 加载动画
 NProgress.start();
@@ -16,13 +14,16 @@ router.beforeEach(async (to, from, next) => {
     // 有token没有用户信息的时候
     if (!store.getters.userId) {
       const res = await store.dispatch("user/getUserInfo");
-      console.log(res.roles.menus);
+      // console.log(res.roles.menus);
       const routes = await store.dispatch(
         "permission/filterRouters",
         res.roles.menus
       );
-      console.log(routes);
-      router.addRoutes(routes); // 添加动态路由到路由表  铺路
+      // console.log(routes);
+      router.addRoutes([
+        ...routes,
+        { path: "*", redirect: "/404", hidden: true },
+      ]); // 添加动态路由到路由表  铺路
       next(to.path);
     }
     // 判断是否去登录页

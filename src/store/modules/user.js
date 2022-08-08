@@ -1,6 +1,7 @@
 // 引入获取token方法
 import { login, getUserInfo, getUserDetailById } from "@/api/user";
 import { getToken, setToken, removeToken, setTime } from "@/utils/auth";
+import { resetRouter } from "@/router";
 const state = {
   // 初始化的时候把本地存储里面的token复制给vuex默认值
   token: getToken(),
@@ -57,6 +58,9 @@ const actions = {
     // 清除token，用户信息
     context.commit("removeToken");
     context.commit("removeUserInfo");
+    resetRouter();
+    // context 是根节点的上下文
+    context.commit("permission/setRoutes", [], { root: true });
   },
 };
 const getters = {};
