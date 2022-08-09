@@ -1,29 +1,29 @@
-
-import Layout from '@/layout'
+import Layout from "@/layout";
 
 export default {
-  path: '/users',
+  path: "/users",
   component: Layout,
   hidden: true,
-  name: 'user',
+  name: "user",
   children: [
     {
-      path: '/users/approvals',
-      component: () => import('@/views/users/approvals'),
-      name: 'usersApprovals',
+      name: "user",
+      path: "/users/approvals",
+      component: () => import("@/views/users/approvals"),
+      name: "usersApprovals",
       hidden: true,
       meta: {
-        title: '用户'
-      }
+        title: "用户",
+      },
     },
     {
-      path: '/users/info',
-      component: () => import('@/views/users/info'),
-      name: 'myInfo',
+      path: "/users/info",
+      component: () => import("@/views/users/info"),
+      name: "myInfo",
       hidden: true,
       meta: {
-        title: '我的信息'
-      }
-    }
-  ]
-}
+        title: "我的信息",
+      },
+    },
+  ],
+};

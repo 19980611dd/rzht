@@ -15,7 +15,6 @@
     popper-class="theme-picker-dropdown"
   />
 </template>
-
 <script>
 const version = require("element-ui/package.json").version; // element-ui version from node_modules
 const ORIGINAL_THEME = "#409EFF"; // default color
@@ -165,8 +164,8 @@ export default {
   z-index: 99999 !important;
 }
 .theme-picker .el-color-picker__trigger {
-  height: 30px !important;
-  width: 30px !important;
+  height: 40px !important;
+  width: 40px !important;
   padding: 2px;
 }
 .theme-picker-dropdown .el-color-dropdown__link-btn {

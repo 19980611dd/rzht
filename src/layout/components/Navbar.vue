@@ -12,6 +12,9 @@
     <!-- <breadcrumb class="breadcrumb-container" /> -->
 
     <div class="right-menu">
+      <lang class="right-menu-item" />
+      <theme-picker class="right-menu-item" />
+      <screen-full class="right-menu-item" />
       <el-dropdown class="avatar-container" trigger="click">
         <div class="avatar-wrapper">
           <img v-imgError="imgError" :src="staffPhoto" class="user-avatar" />
@@ -32,7 +35,7 @@
       </el-dropdown>
     </div>
     <!-- 放置全屏插件 -->
-    <!-- <screen-full class="right-menu-item" /> -->
+
     <!-- .right-menu-item { vertical-align: middle; } -->
     <!-- <theme-picker class="right-menu-item" /> -->
   </div>
@@ -70,6 +73,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.right-menu-item {
+  vertical-align: middle;
+  cursor: pointer;
+}
 .navbar {
   height: 50px;
   overflow: hidden;

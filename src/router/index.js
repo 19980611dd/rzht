@@ -72,7 +72,7 @@ export const constantRoutes = [
     children: [
       {
         path: "dashboard",
-        name: "Dashboard",
+        name: "dashboard",
         component: () => import("@/views/dashboard/index"),
         meta: { title: "首页", icon: "dashboard" },
       },
@@ -89,8 +89,9 @@ export const constantRoutes = [
 
 const createRouter = () =>
   new Router({
-    // mode: 'history', // require service support
+    mode: "history", // require service support
     scrollBehavior: () => ({ y: 0 }),
+    base: "/hr/", // 配置项目的基础地址
     routes: [...constantRoutes], // 临时合并所有的路由
   });
 
